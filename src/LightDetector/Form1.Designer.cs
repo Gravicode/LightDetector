@@ -34,6 +34,7 @@
             this.Group1 = new System.Windows.Forms.GroupBox();
             this.GvData = new System.Windows.Forms.DataGridView();
             this.BtnReset = new System.Windows.Forms.Button();
+            this.BtnExport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.Group1.SuspendLayout();
@@ -96,11 +97,21 @@
             this.BtnReset.Text = "&Reset Data";
             this.BtnReset.UseVisualStyleBackColor = true;
             // 
+            // BtnExport
+            // 
+            this.BtnExport.Location = new System.Drawing.Point(260, 12);
+            this.BtnExport.Name = "BtnExport";
+            this.BtnExport.Size = new System.Drawing.Size(118, 50);
+            this.BtnExport.TabIndex = 6;
+            this.BtnExport.Text = "&Export to CSV";
+            this.BtnExport.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1334, 740);
+            this.Controls.Add(this.BtnExport);
             this.Controls.Add(this.BtnReset);
             this.Controls.Add(this.Group1);
             this.Controls.Add(this.pictureBox2);
@@ -124,5 +135,6 @@
         private GroupBox Group1;
         private DataGridView GvData;
         private Button BtnReset;
+        private Button BtnExport;
     }
 }

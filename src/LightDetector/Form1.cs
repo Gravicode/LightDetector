@@ -24,7 +24,20 @@ namespace LightDetector
                 pictureBox2.Image = y.Extracted;
 
             };
-            BtnReset.Click += async (a, b) =>
+            BtnExport.Click += async (a, b) =>
+            {
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                saveFileDialog1.Filter = "CSV |*.csv";
+                saveFileDialog1.Title = "Export to a CSV File";
+                saveFileDialog1.ShowDialog();
+
+                // If the file name is not an empty string open it for saving.
+                if (saveFileDialog1.FileName != "")
+                {
+                    detector.ExportAsCSV(saveFileDialog1.FileName);
+                }
+            };
+                BtnReset.Click += async (a, b) =>
             {
                 detector.ResetData();
                 GvData.DataSource = null;

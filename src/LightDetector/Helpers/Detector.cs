@@ -225,6 +225,34 @@ namespace LightDetector.Helpers
         }
 
         #region Data
+
+        public bool ExportAsCSV(string FName)
+        {
+            try
+            {
+                var dt = GetDataAsTable();
+                if (dt == null) return false;
+                StringBuilder sb = new StringBuilder();
+
+                IEnumerable<string> columnNames = dt.Columns.Cast<DataColumn>().
+                                                  Select(column => column.ColumnName);
+                sb.AppendLine(string.Join(",", columnNames));
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    IEnumerable<string> fields = row.ItemArray.Select(field => field.ToString());
+                    sb.AppendLine(string.Join(",", fields));
+                }
+
+                File.WriteAllText(FName, sb.ToString());
+                return true;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error saat save csv:" + ex);
+            }
+            return false;
+        }
         public void ResetData()
         {
             Datas.Clear();
